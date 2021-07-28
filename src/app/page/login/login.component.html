@@ -1,1 +1,43 @@
-<p>login works!</p>
+<!-- LOGIN -->
+<div *ngIf="login" class="loginBox">
+    <img src="../../../assets/Img/user-icon-2.png" class="user">
+
+    <h2>Log In Here</h2>
+
+    <form action="">
+        <p>Email</p>
+        <input type="text">
+
+        <p>Senha</p>
+        <input type="password">
+
+        <input type="submit" value="Acessar">
+
+        <a (click)="loginStatus(0)">Criar conta</a>
+    </form>
+</div>
+
+<!-- CADASTRO -->
+<div *ngIf="!login" class="loginBox">
+    <img src="../../../assets/Img/user-icon-2.png" class="user">
+
+    <h2>Log In Here</h2>
+
+    <form action="">
+        <p>Nome</p>
+        <input type="text">
+
+        <p>Email</p>
+        <input type="text">
+
+        <p>CPF</p>
+        <input type="text">
+
+        <p>Senha</p>
+        <input type="text">
+
+        <input type="submit" value="Criar conta">
+
+        <a (click)="loginStatus(1)">Voltar</a>
+    </form>
+</div>

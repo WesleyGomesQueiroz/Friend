@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  login = true;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  loginStatus(status: any) {
+    this.login = status;
   }
 
 }
