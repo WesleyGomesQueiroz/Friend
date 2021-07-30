@@ -4,17 +4,23 @@
 
     <h2>Log In Here</h2>
 
-    <form action="">
+    <form [formGroup]="loginForm" (ngSubmit)="loginIn()">
         <p>Email</p>
-        <input type="text">
+        <input type="text" formControlName="email">
+        <span *ngIf="loginForm.controls.email.invalid && loginForm.controls.email.touched">E-mail é obrigatório. </span>
 
         <p>Senha</p>
-        <input type="password">
+        <input type="password" formControlName="password">
 
-        <input type="submit" value="Acessar">
+        <input type="submit" [disabled]='loginForm.invalid' value="Acessar">
 
         <a (click)="loginStatus(0)">Criar conta</a>
     </form>
+
+    <div *ngIf="loading" class="spinner spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+
 </div>
 
 <!-- CADASTRO -->

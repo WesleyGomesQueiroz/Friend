@@ -73,6 +73,18 @@ h2 {
     text-decoration: none;
 }
 
+.loginBox span {
+    color: red;
+    float: left;
+    margin-top: -20px;
+    font-size: 14px;
+}
+
+.loginBox .spinner {
+    margin-left: 40%;
+    color: #ed145b;
+}
+
 .loginBox a:hover {
     color: #ed145b;
 }
