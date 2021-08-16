@@ -10,11 +10,20 @@ import { LoginService } from 'src/app/service/login.service';
 export class LoginComponent implements OnInit {
 
   login = true;
+  confirmLogin: any;
   loading = false;
+  msg: any;
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required])
+  });
+
+  createLoginForm = new FormGroup({
+    nome: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]),
+    cpf: new FormControl('', [Validators.required, Validators.pattern('([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})')])
   });
 
   constructor(private loginService: LoginService) { }
@@ -25,13 +34,25 @@ export class LoginComponent implements OnInit {
   loginIn() {
     this.loading = true;
     this.loginService.login(this.loginForm.value).subscribe(res => {
-      localStorage.setItem('usuario', JSON.stringify(res));
+      this.confirmLogin = res;
+
+      if (this.confirmLogin.value.status) {
+        localStorage.setItem('usuario', JSON.stringify(res));
+      } else {
+        this.msg = this.confirmLogin.value.message;
+      }
+
       this.loading = false;
+
     });
   }
 
   loginStatus(status: any) {
     this.login = status;
+  }
+
+  createLogin() {
+    console.log('formulario ', this.createLoginForm);
   }
 
 }

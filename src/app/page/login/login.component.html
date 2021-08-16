@@ -15,6 +15,8 @@
         <input type="submit" [disabled]='loginForm.invalid' value="Acessar">
 
         <a (click)="loginStatus(0)">Criar conta</a>
+
+        <p class="msg" *ngIf="msg">{{msg}}</p>
     </form>
 
     <div *ngIf="loading" class="spinner spinner-border" role="status">
@@ -29,21 +31,25 @@
 
     <h2>Log In Here</h2>
 
-    <form action="">
+    <form [formGroup]="createLoginForm" (ngSubmit)="createLogin()">
         <p>Nome</p>
-        <input type="text">
+        <input type="text" formControlName="nome">
 
         <p>Email</p>
-        <input type="text">
+        <input type="text" formControlName="email">
 
         <p>CPF</p>
-        <input type="text">
+        <input type="text" formControlName="cpf">
 
         <p>Senha</p>
-        <input type="text">
+        <input type="text" formControlName="password">
 
-        <input type="submit" value="Criar conta">
+        <input type="submit" [disabled]='createLoginForm.invalid' value="Criar conta">
 
         <a (click)="loginStatus(1)">Voltar</a>
     </form>
+
+    <div *ngIf="loading" class="spinner spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
 </div>

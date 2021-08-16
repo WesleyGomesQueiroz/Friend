@@ -73,6 +73,14 @@ h2 {
     text-decoration: none;
 }
 
+.loginBox .msg {
+    color: #ed145b;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
 .loginBox span {
     color: red;
     float: left;
