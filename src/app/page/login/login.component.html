@@ -2,15 +2,16 @@
 <div *ngIf="login" class="loginBox">
     <img src="../../../assets/Img/user-icon-2.png" class="user">
 
-    <h2>Log In Here</h2>
+    <h2>Lista de Amigos</h2>
 
     <form [formGroup]="loginForm" (ngSubmit)="loginIn()">
         <p>Email</p>
         <input type="text" formControlName="email">
-        <span *ngIf="loginForm.controls.email.invalid && loginForm.controls.email.touched">E-mail é obrigatório. </span>
+        <span *ngIf="loginForm.controls.email.invalid && loginForm.controls.email.touched">Email é obrigatório. </span>
 
         <p>Senha</p>
         <input type="password" formControlName="password">
+        <span *ngIf="loginForm.controls.password.invalid && loginForm.controls.password.touched">Senha é obrigatório. </span>
 
         <input type="submit" [disabled]='loginForm.invalid' value="Acessar">
 
@@ -29,20 +30,24 @@
 <div *ngIf="!login" class="loginBox">
     <img src="../../../assets/Img/user-icon-2.png" class="user">
 
-    <h2>Log In Here</h2>
+    <h2>Lista de Amigos</h2>
 
     <form [formGroup]="createLoginForm" (ngSubmit)="createLogin()">
         <p>Nome</p>
         <input type="text" formControlName="nome">
+        <span *ngIf="createLoginForm.controls.nome.invalid && createLoginForm.controls.nome.touched">Nome é obrigatório. </span>
 
         <p>Email</p>
         <input type="text" formControlName="email">
+        <span *ngIf="createLoginForm.controls.email.invalid && createLoginForm.controls.email.touched">Email é obrigatório. </span>
 
         <p>CPF</p>
         <input type="text" formControlName="cpf">
+        <span *ngIf="createLoginForm.controls.cpf.invalid && createLoginForm.controls.cpf.touched">CPF é obrigatório. </span>
 
         <p>Senha</p>
         <input type="text" formControlName="password">
+        <span *ngIf="createLoginForm.controls.password.invalid && createLoginForm.controls.password.touched">Senha é obrigatório e tem que conter letra maiúscula números e caractere especial!</span>
 
         <input type="submit" [disabled]='createLoginForm.invalid' value="Criar conta">
 

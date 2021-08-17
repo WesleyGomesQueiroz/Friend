@@ -13,4 +13,8 @@ export class LoginService {
     return this.httpClient.post(`${environment.friend_API}v1/User/login`, data);
   }
 
+  createLogin(data: any) {
+    return this.httpClient.post(`${environment.friend_API}v1/User/create`, data);
+  }
+
 }

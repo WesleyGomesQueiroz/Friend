@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/service/login.service';
 
 @Component({
@@ -26,7 +27,9 @@ export class LoginComponent implements OnInit {
     cpf: new FormControl('', [Validators.required, Validators.pattern('([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})')])
   });
 
-  constructor(private loginService: LoginService) { }
+  constructor(
+    private loginService: LoginService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -38,21 +41,41 @@ export class LoginComponent implements OnInit {
 
       if (this.confirmLogin.value.status) {
         localStorage.setItem('usuario', JSON.stringify(res));
+        this.router.navigateByUrl('/dashboard');
       } else {
         this.msg = this.confirmLogin.value.message;
       }
 
       this.loading = false;
-
     });
+  }
+
+  createLogin() {
+    this.loading = true;
+
+    const obj = {
+      Name: this.createLoginForm.value.nome,
+      Email: this.createLoginForm.value.email,
+      Document: this.createLoginForm.value.cpf,
+      Password: this.createLoginForm.value.password
+    };
+
+    this.loginService.createLogin(obj).subscribe(res => {
+      this.confirmLogin = res;
+
+      if (this.confirmLogin.value.status) {
+        localStorage.setItem('usuario', JSON.stringify(res));
+        this.router.navigateByUrl('/dashboard');
+      } else {
+        this.msg = this.confirmLogin.value.message;
+      }
+
+      this.loading = false;
+    });
+
   }
 
   loginStatus(status: any) {
     this.login = status;
   }
-
-  createLogin() {
-    console.log('formulario ', this.createLoginForm);
-  }
-
 }
