@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FriendService } from 'src/app/service/friend.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,12 +9,22 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
   userData: any;
 
-  constructor() { }
+  constructor(private friendService: FriendService) { }
 
   ngOnInit(): void {
     this.userData = JSON.parse(localStorage.getItem('usuario') || '{}');
 
-    console.log('dados em cahe --> ', this.userData)
+    this.getAllFriends();
+  }
+
+  getAllFriends() {
+    const obj = {
+      IdUser: this.userData.value.resUser.id
+    };
+
+    this.friendService.getAllFriends(obj).subscribe(res => {
+      console.log('retorno da api ---> ', res);
+    });
   }
 
 }
