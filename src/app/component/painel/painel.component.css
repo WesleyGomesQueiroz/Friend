@@ -1,0 +1,20 @@
+.main {
+    margin-left: 3%;
+    height: 560px;
+    padding: 2%;
+}
+
+.main .graphics {
+    background: blue;
+    width: 49%;
+    height: 100%;
+    float: left;
+    margin-right: 2%;
+}
+
+.main .list {
+    background: red;
+    width: 49%;
+    height: 100%;
+    float: left;
+}

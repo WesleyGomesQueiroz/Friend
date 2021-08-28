@@ -18,7 +18,9 @@
 <div class="sidebar">
     <div class="avatar">
         <img class="profile_image" src="../../../assets/Img/user-icon-2.png">
-        <h4>Wesley Queiroz</h4>
+        <h4 (mouseover)="changeText=true" (mouseout)="changeText=false">Wesley Queiroz
+            <mat-icon *ngIf="changeText" class="icon">edit</mat-icon>
+        </h4>
     </div>
 
     <a (click)="menuSelected('painel')" [class.menuSelected]="menu == 'painel'">
