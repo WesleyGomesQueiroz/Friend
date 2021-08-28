@@ -7,6 +7,7 @@ import { FriendService } from 'src/app/service/friend.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  menu = 'painel';
   userData: any;
 
   constructor(private friendService: FriendService) { }
@@ -23,8 +24,12 @@ export class DashboardComponent implements OnInit {
     };
 
     this.friendService.getAllFriends(obj).subscribe(res => {
-      console.log('retorno da api ---> ', res);
+      //! console.log('retorno da api ---> ', res);
     });
+  }
+
+  menuSelected(painel: any) {
+    this.menu = painel;
   }
 
 }

@@ -78,6 +78,11 @@ header {
     box-sizing: border-box;
     transition: 0.5s;
     transition-property: background;
+    cursor: pointer;
+}
+
+.sidebar .menuSelected {
+    color: #ed145b;
 }
 
 .sidebar span {
@@ -88,6 +93,7 @@ header {
 
 .sidebar a:hover {
     background: #ed145b;
+    color: #fff;
 }
 
 .sidebar i {
@@ -127,12 +133,15 @@ label #sidebar__btn:hover {
 
 .content {
     margin-left: 250px;
+    background-position: center;
+    background-size: cover;
     height: 100vh;
     transition: 0.5s;
+    padding-top: 71px;
 }
 
 #check:checked~.content {
-    margin-left: 60px;
+    margin-left: 20px;
 }
 
 #check {

@@ -11,12 +11,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MatIconModule } from '@angular/material/icon';
+import { PainelComponent } from './component/painel/painel.component';
+import { FriendComponent } from './component/friend/friend.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    PainelComponent,
+    FriendComponent
   ],
   imports: [
     BrowserModule,
