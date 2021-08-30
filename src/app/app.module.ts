@@ -14,6 +14,7 @@ import { PainelComponent } from './component/painel/painel.component';
 import { FriendComponent } from './component/friend/friend.component';
 
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { MatIconModule } from '@angular/material/icon';
 
@@ -32,7 +33,7 @@ import { MatIconModule } from '@angular/material/icon';
     ReactiveFormsModule,
     HttpClientModule,
     NgxPaginationModule,
-
+    NgbModule,
     MatIconModule
   ],
   providers: [],

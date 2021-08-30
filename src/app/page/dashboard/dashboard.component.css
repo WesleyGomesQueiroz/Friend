@@ -7,10 +7,9 @@
 }
 
 .avatar .icon {
-    font-size: 16px;
-    float: left;
-    margin-left: 178px;
-    margin-top: -20px;
+    margin-left: -2px;
+    font-size: 17px;
+    color: #2199e8;
 }
 
 header {
@@ -157,4 +156,67 @@ label #sidebar__btn:hover {
 
 #check {
     display: none;
+}
+
+.modal-header {
+    background: #22242a;
+    color: #2199e8;
+    padding-left: 40%;
+}
+
+.modal-header button {
+    background: red;
+    border: none;
+    color: #ccc;
+    margin-top: -15px;
+    outline: 0px;
+    border-radius: 3px;
+    font-size: 18px;
+}
+
+.modal-body {
+    background: #22242a;
+    padding: 30px;
+}
+
+.loginBox p {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    color: #ccc;
+}
+
+.loginBox input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.loginBox input[type="text"],
+.loginBox input[type="password"] {
+    border: none;
+    border-bottom: 1px solid #2199e8;
+    background: transparent;
+    outline: none;
+    height: 25px;
+    color: #ccc;
+    font-size: 16px;
+}
+
+.loginBox span {
+    color: red;
+    float: left;
+    margin-top: -20px;
+    font-size: 14px;
+}
+
+.modal-footer {
+    background: #22242a;
+}
+
+.modal-footer button {
+    background: #2199e8;
+    border: none;
+    color: #fff;
+    outline: 0px;
+    border-radius: 3px;
 }
