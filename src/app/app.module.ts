@@ -10,9 +10,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { MatIconModule } from '@angular/material/icon';
 import { PainelComponent } from './component/painel/painel.component';
 import { FriendComponent } from './component/friend/friend.component';
+
+import { NgxPaginationModule } from 'ngx-pagination';
+
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,7 @@ import { FriendComponent } from './component/friend/friend.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgxPaginationModule,
 
     MatIconModule
   ],

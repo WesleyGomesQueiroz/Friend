@@ -1,7 +1,7 @@
 <div class="main">
 
     <div class="graphics">
-        <h1>Grafico da quantidade de Amigos</h1>
+        <h1>Gráfico da quantidade de Amigos</h1>
 
         <div>
             <canvas #meuCanvas></canvas>
@@ -9,7 +9,31 @@
     </div>
 
     <div class="list">
-        <h1>list</h1>
+        <h1>Lista de Amigos</h1>
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Telefone</th>
+                        <th scope="col">Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let friend of friends.value.resFriend | paginate: { itemsPerPage: contador, currentPage: paginaAtual }">
+                        <td>{{friend.name}}</td>
+                        <td>({{friend.ddd}}) {{friend.phone}}</td>
+                        <td>{{friend.email}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="text-right">
+            <pagination-controls class="my-pagination" (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo">
+            </pagination-controls>
+        </div>
+
     </div>
 
 </div>

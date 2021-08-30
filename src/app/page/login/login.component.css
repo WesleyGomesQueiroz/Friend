@@ -24,7 +24,7 @@
 h2 {
     margin: 0;
     padding: 0 0 20px;
-    color: #ed145b;
+    color: #2199e8;
     text-align: center;
 }
 
@@ -43,7 +43,7 @@ h2 {
 .loginBox input[type="text"],
 .loginBox input[type="password"] {
     border: none;
-    border-bottom: 1px solid #ed145b;
+    border-bottom: 1px solid #2199e8;
     background: transparent;
     outline: none;
     height: 25px;
@@ -61,7 +61,7 @@ h2 {
     height: 40px;
     color: #ccc;
     font-size: 16px;
-    background: #ed145b;
+    background: #2199e8;
     cursor: pointer;
     border-radius: 5px;
 }
@@ -74,7 +74,7 @@ h2 {
 }
 
 .loginBox .msg {
-    color: #ed145b;
+    color: #2199e8;
     font-size: 14px;
     cursor: pointer;
     text-decoration: none;
@@ -90,9 +90,9 @@ h2 {
 
 .loginBox .spinner {
     margin-left: 40%;
-    color: #ed145b;
+    color: #2199e8;
 }
 
 .loginBox a:hover {
-    color: #ed145b;
+    color: #2199e8;
 }

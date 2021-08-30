@@ -31,7 +31,7 @@ header {
 }
 
 .left_area span {
-    color: #ed145b;
+    color: #2199e8;
 }
 
 .logout_btn {
@@ -44,13 +44,13 @@ header {
     border-radius: 2px;
     font-size: 15px;
     font-weight: 600;
-    color: #ed145b;
+    color: #2199e8;
     transition: 0.5s;
     transition-property: background;
 }
 
 .logout_btn:hover {
-    background: #ed145b;
+    background: #2199e8;
     color: #ccc;
 }
 
@@ -93,7 +93,7 @@ header {
 }
 
 .sidebar .menuSelected {
-    color: #ed145b;
+    color: #2199e8;
 }
 
 .sidebar span {
@@ -103,7 +103,7 @@ header {
 }
 
 .sidebar a:hover {
-    background: #ed145b;
+    background: #2199e8;
     color: #dcc;
 }
 
@@ -125,7 +125,7 @@ label #sidebar__btn {
 }
 
 label #sidebar__btn:hover {
-    color: #ed145b;
+    color: #2199e8;
 }
 
 #check:checked~.sidebar {

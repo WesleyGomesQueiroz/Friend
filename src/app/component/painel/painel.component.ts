@@ -17,6 +17,9 @@ export class PainelComponent implements OnInit {
   qtdFriends: any = [];
   loadingGraphic = false;
 
+  paginaAtual = 1;
+  contador = 10;
+
   months: any = [
     { id: 1, qtd: 0 },
     { id: 2, qtd: 0 },
@@ -78,13 +81,14 @@ export class PainelComponent implements OnInit {
           {
             hoverBackgroundColor: '#000',
             data: this.qtdFriends,
-            borderColor: '#ed145b',
-            backgroundColor: '#ed145b',
+            borderColor: '#2199e8',
+            backgroundColor: '#2199e8',
             label: 'Amigos'
           }
         ]
       }
     });
   }
+
 
 }

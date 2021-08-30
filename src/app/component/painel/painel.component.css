@@ -19,10 +19,26 @@
 }
 
 .main .list {
-    background: red;
+    background: #22242a;
     width: 49%;
     height: 100%;
     float: left;
     padding: 10px;
     text-align: center;
+}
+
+.list h1 {
+    color: #ccc;
+}
+
+.list .table thead {
+    color: #2199e8;
+}
+
+.list .table tbody {
+    color: #ccc;
+}
+
+.list pagination-controls {
+    color: #ccc;
 }
