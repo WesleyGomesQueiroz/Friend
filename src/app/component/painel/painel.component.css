@@ -5,11 +5,17 @@
 }
 
 .main .graphics {
-    background: blue;
+    background: #22242a;
     width: 49%;
     height: 100%;
     float: left;
     margin-right: 2%;
+    padding: 10px;
+    text-align: center;
+}
+
+.graphics h1 {
+    color: #ccc;
 }
 
 .main .list {
@@ -17,4 +23,6 @@
     width: 49%;
     height: 100%;
     float: left;
+    padding: 10px;
+    text-align: center;
 }
