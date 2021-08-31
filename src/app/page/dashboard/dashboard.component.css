@@ -51,6 +51,7 @@ header {
 .logout_btn:hover {
     background: #2199e8;
     color: #ccc;
+    cursor: pointer;
 }
 
 .sidebar {
@@ -219,4 +220,13 @@ label #sidebar__btn:hover {
     color: #fff;
     outline: 0px;
     border-radius: 3px;
+}
+
+.btnEXit {
+    width: 100%;
+    text-align: center;
+}
+
+.btnEXit button {
+    margin-left: 10px;
 }

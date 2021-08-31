@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginService } from 'src/app/service/login.service';
+import { AlertComponent } from '../../component/alert/alert.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,13 +20,19 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private modalService: NgbModal,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private alertComponent: AlertComponent,
+    private router: Router
   ) {
     this.changeText = false;
   }
 
   ngOnInit(): void {
     this.userData = JSON.parse(localStorage.getItem('usuario') || '{}');
+
+    if (JSON.stringify(this.userData) == '{}') {
+      this.router.navigateByUrl('/login');
+    }
 
     this.updateUser = new FormGroup({
       id: new FormControl(this.userData.value.resUser.id, [Validators.required]),
@@ -41,8 +49,15 @@ export class DashboardComponent implements OnInit {
 
   update() {
     this.loginService.update(this.updateUser.value).subscribe(res => {
+      this.alertComponent.alertTimer('success', `Dados alterado com sucesso!`);
       this.modalService.dismissAll();
     });
+  }
+
+  exit() {
+    localStorage.clear();
+    this.modalService.dismissAll();
+    this.router.navigateByUrl('/login');
   }
 
   triggerModal(content: any) {

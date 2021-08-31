@@ -17,6 +17,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { MatIconModule } from '@angular/material/icon';
+import { AlertComponent } from './component/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MatIconModule } from '@angular/material/icon';
     LoginComponent,
     DashboardComponent,
     PainelComponent,
-    FriendComponent
+    FriendComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
