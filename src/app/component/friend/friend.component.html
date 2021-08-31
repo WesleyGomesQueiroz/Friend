@@ -1,3 +1,36 @@
 <div class="main">
-    <p style="color: red;">friend works!</p>
+    <div class="list">
+        <h1>Lista</h1>
+
+        <div class="search">
+            <div class="row g-2">
+                <div class="col-auto">
+                    <label class="visually-hidden">Password</label>
+                    <input type="text" class="form-control" placeholder="Nome do amigo">
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-3"><span class="material-icons">person_search</span></button>
+                    <button class="btn btn-primary mb-3"><span class="material-icons">person_add</span></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="friendList">
+
+            <div class="card" *ngFor="let friend of friends.value.resFriend">
+                <h5 class="card-header">{{friend.name}}</h5>
+                <div class="card-body">
+                    <p class="card-title">
+                        <sub><span class="icon material-icons">call</span></sub>({{friend.ddd}}) {{friend.phone}}&nbsp;&nbsp;
+                        <sub><span class="icon material-icons">mail_outline</span></sub> {{friend.email}}</p>
+                    <p class="card-text"> <sub><span class="icon material-icons">location_on</span></sub>{{friend.adress}}</p>
+
+                    <a href="#" class="btn btn-primary"><span class="material-icons">edit</span></a>
+                    <a href="#" class="btn delete btn-primary"><span class="material-icons">delete_outline</span></a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 </div>

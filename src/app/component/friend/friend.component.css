@@ -1,0 +1,89 @@
+        .main {
+            margin-left: 3%;
+            height: 560px;
+            padding: 2%;
+        }
+        
+        .main .list {
+            background: #22242a;
+            width: 100%;
+            height: 100%;
+            float: left;
+            margin-right: 2%;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        
+        .list h1 {
+            color: #ccc;
+        }
+        
+        .list .search .row {
+            margin-left: 37%;
+        }
+        
+        .search button {
+            background: #2199e8;
+            border-radius: 60%;
+            margin-left: 10px;
+        }
+        
+        .search input {
+            border: none;
+            border-bottom: 2px solid #2199e8;
+            background: transparent;
+            outline: 0px;
+            height: 35px;
+            color: #ccc;
+            font-size: 16px;
+        }
+        
+        .list .friendList {
+            /* background: red; */
+            width: 70%;
+            margin-left: 17%;
+            height: 78%;
+            border-radius: 4px;
+            overflow: auto;
+        }
+        
+        .list .card {
+            width: 99%;
+            margin-bottom: 10px;
+            background: #22242a;
+            border: 1px solid #2199e8;
+            color: #ccc;
+        }
+        
+        .list .card .card-header {
+            background: #2199e8;
+            font-size: 20px;
+        }
+        
+        .list .card .card-body a {
+            outline: none;
+            border: none;
+            margin-left: 10px;
+            border-radius: 22px;
+        }
+        
+        .list .card .card-body .icon {
+            font-size: 15px;
+        }
+        
+        .list .card .card-body .delete:hover {
+            background: red;
+        }
+        
+         ::-webkit-scrollbar {
+            width: 5px;
+        }
+        
+         ::-webkit-scrollbar-track {
+            background: #22242a;
+        }
+        
+         ::-webkit-scrollbar-thumb {
+            background: #2199e8;
+        }
