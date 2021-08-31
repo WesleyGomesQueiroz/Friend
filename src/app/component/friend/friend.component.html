@@ -9,8 +9,10 @@
                     <input type="text" class="form-control" placeholder="Nome do amigo">
                 </div>
                 <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mb-3"><span class="material-icons">person_search</span></button>
-                    <button class="btn btn-primary mb-3"><span class="material-icons">person_add</span></button>
+                    <button type="submit" class="btn btn-primary mb-3"><span
+                            class="material-icons">person_search</span></button>
+                    <button (click)="triggerModal(modalEditUser)" class="btn btn-primary mb-3"><span
+                            class="material-icons">person_add</span></button>
                 </div>
             </div>
         </div>
@@ -22,8 +24,10 @@
                 <div class="card-body">
                     <p class="card-title">
                         <sub><span class="icon material-icons">call</span></sub>({{friend.ddd}}) {{friend.phone}}&nbsp;&nbsp;
-                        <sub><span class="icon material-icons">mail_outline</span></sub> {{friend.email}}</p>
-                    <p class="card-text"> <sub><span class="icon material-icons">location_on</span></sub>{{friend.adress}}</p>
+                        <sub><span class="icon material-icons">mail_outline</span></sub> {{friend.email}}
+                    </p>
+                    <p class="card-text"> <sub><span
+                                class="icon material-icons">location_on</span></sub>{{friend.adress}}</p>
 
                     <a href="#" class="btn btn-primary"><span class="material-icons">edit</span></a>
                     <a href="#" class="btn delete btn-primary"><span class="material-icons">delete_outline</span></a>
@@ -34,3 +38,45 @@
 
     </div>
 </div>
+
+<ng-template #modalEditUser let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Adicionar Novo Amigo</h4>
+        <button (click)="modal.dismiss('Cross click')" type="button">x</button>
+    </div>
+
+    <form [formGroup]="createFriend" (ngSubmit)="create()">
+        <div class="modal-body">
+            <div class="loginBox">
+                <p>Nome</p>
+                <input type="text" formControlName="name">
+                <span *ngIf="createFriend.controls.name.invalid && createFriend.controls.name.touched">Este campo é
+                    obrigatório.</span>
+
+                <p>Email</p>
+                <input type="text" formControlName="email">
+                <span *ngIf="createFriend.controls.email.invalid && createFriend.controls.email.touched">Este campo é
+                    obrigatório.</span>
+
+                <p>DDD</p>
+                <input type="text" formControlName="ddd">
+                <span *ngIf="createFriend.controls.ddd.invalid && createFriend.controls.ddd.touched">Este campo é
+                    obrigatório.</span>
+
+                <p>Telefone</p>
+                <input type="text" formControlName="phone">
+                <span *ngIf="createFriend.controls.phone.invalid && createFriend.controls.phone.touched">Este campo é
+                    obrigatório.</span>
+
+                <p>Endereço</p>
+                <input type="text" formControlName="adress">
+                <span *ngIf="createFriend.controls.adress.invalid && createFriend.controls.adress.touched">Este campo é
+                    obrigatório.</span>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button type="submit" [disabled]='createFriend.invalid'>Salvar</button>
+        </div>
+    </form>
+</ng-template>

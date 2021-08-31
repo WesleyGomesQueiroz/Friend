@@ -18,7 +18,7 @@ export class PainelComponent implements OnInit {
   loadingGraphic = false;
 
   paginaAtual = 1;
-  contador = 10;
+  contador = 6;
 
   months: any = [
     { id: 1, qtd: 0 },

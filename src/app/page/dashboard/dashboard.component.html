@@ -54,8 +54,8 @@
             <div class="loginBox">
                 <p>Nome</p>
                 <input type="text" formControlName="name">
-                <span *ngIf="updateUser.controls.name.invalid && updateUser.controls.name.touched">Nome é obrigatório.
-                </span>
+                <span *ngIf="updateUser.controls.name.invalid && updateUser.controls.name.touched">Nome é
+                    obrigatório.</span>
 
                 <p>Email</p>
                 <input type="text" formControlName="email">
@@ -77,7 +77,6 @@
         <div class="modal-footer">
             <button type="submit" [disabled]='updateUser.invalid'>Salvar</button>
         </div>
-
     </form>
 </ng-template>
 
@@ -99,5 +98,4 @@
             <button (click)="modal.dismiss('Cross click')">Não</button>
         </div>
     </div>
-
 </ng-template>

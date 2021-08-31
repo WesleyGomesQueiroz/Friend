@@ -17,7 +17,7 @@ export class FriendService {
     this.httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${this.userData.value.token}` 
+        'Authorization': `Bearer ${this.userData.value.token}`
       })
     };
   }
@@ -26,6 +26,11 @@ export class FriendService {
     this.autorize();
 
     return this.httpClient.post(`${environment.friend_API}v1/Friend/get-all-friends`, data, this.httpOptions);
+  }
+  create(data: any) {
+    this.autorize();
+
+    return this.httpClient.post(`${environment.friend_API}v1/Friend/create`, data, this.httpOptions);
   }
 
 
