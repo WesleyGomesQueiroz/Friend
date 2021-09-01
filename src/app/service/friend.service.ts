@@ -24,13 +24,17 @@ export class FriendService {
 
   getAllFriends(data: any) {
     this.autorize();
-
     return this.httpClient.post(`${environment.friend_API}v1/Friend/get-all-friends`, data, this.httpOptions);
   }
+
   create(data: any) {
     this.autorize();
-
     return this.httpClient.post(`${environment.friend_API}v1/Friend/create`, data, this.httpOptions);
+  }
+
+  update(data: any) {
+    this.autorize();
+    return this.httpClient.post(`${environment.friend_API}v1/Friend/update`, data, this.httpOptions);
   }
 
 

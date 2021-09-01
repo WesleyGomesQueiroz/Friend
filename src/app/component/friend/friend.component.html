@@ -29,8 +29,8 @@
                     <p class="card-text"> <sub><span
                                 class="icon material-icons">location_on</span></sub>{{friend.adress}}</p>
 
-                    <a href="#" class="btn btn-primary"><span class="material-icons">edit</span></a>
-                    <a href="#" class="btn delete btn-primary"><span class="material-icons">delete_outline</span></a>
+                    <a class="btn btn-primary"><span class="material-icons">edit</span></a>
+                    <a (click)="delete(friend, modalExit)" class="btn delete btn-primary"><span class="material-icons">delete_outline</span></a>
                 </div>
             </div>
 
@@ -79,4 +79,24 @@
             <button type="submit" [disabled]='createFriend.invalid'>Salvar</button>
         </div>
     </form>
+</ng-template>
+
+<ng-template #modalExit let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Atenção</h4>
+        <button (click)="modal.dismiss('Cross click')" type="button">x</button>
+    </div>
+
+    <div class="modal-body">
+        <div class="loginBox" style="text-align: center;">
+            <p>Deseja realmente excluir {{friendData.name}}?</p>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <div class="btnEXit">
+            <button (click)="confirmDelete()">Sim</button>
+            <button (click)="modal.dismiss('Cross click')">Não</button>
+        </div>
+    </div>
 </ng-template>

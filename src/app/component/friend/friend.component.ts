@@ -13,6 +13,7 @@ export class FriendComponent implements OnInit {
   userData: any;
   friends: any;
   closeModal: any;
+  friendData: any;
 
   createFriend = new FormGroup({});
 
@@ -62,6 +63,29 @@ export class FriendComponent implements OnInit {
       phone: new FormControl('', [Validators.required]),
       adress: new FormControl('', [Validators.required]),
     });
+  }
+
+  delete(data: any, modal: any) {
+    this.friendData = {
+      id: data.id,
+      idUser: data.idUser,
+      name: data.name,
+      email: data.email,
+      ddd: data.ddd,
+      phone: data.phone,
+      adress: data.adress,
+      status: false,
+    };
+
+    this.triggerModal(modal);
+  }
+
+  confirmDelete() {
+    this.friendService.update(this.friendData).subscribe(res => {
+      this.alertComponent.alertTimer('success', `Deletado com sucesso!`);
+      this.modalService.dismissAll();
+      this.getAllFriends();
+    })
   }
 
   triggerModal(content: any) {

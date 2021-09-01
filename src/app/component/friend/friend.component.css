@@ -150,3 +150,12 @@
          ::-webkit-scrollbar-thumb {
             background: #2199e8;
         }
+        
+        .btnEXit {
+            width: 100%;
+            text-align: center;
+        }
+        
+        .btnEXit button {
+            margin-left: 10px;
+        }
