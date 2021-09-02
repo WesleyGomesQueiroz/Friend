@@ -6,11 +6,10 @@
             <div class="row g-2">
                 <div class="col-auto">
                     <label class="visually-hidden">Password</label>
-                    <input type="text" class="form-control" placeholder="Nome do amigo">
+                    <input type="text" class="form-control" placeholder="Buscar amigo" [(ngModel)]="filterPost" #dataSearch>
                 </div>
                 <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mb-3"><span
-                            class="material-icons">person_search</span></button>
+                    <!-- <button type="submit" class="btn btn-primary mb-3"><span class="material-icons">person_search</span></button> -->
                     <button (click)="triggerModal(modalEditUser)" class="btn btn-primary mb-3"><span
                             class="material-icons">person_add</span></button>
                 </div>
@@ -18,8 +17,7 @@
         </div>
 
         <div class="friendList">
-
-            <div class="card" *ngFor="let friend of friends.value.resFriend">
+            <div class="card" *ngFor="let friend of friends.value.resFriend | filter:filterPost">
                 <h5 class="card-header">{{friend.name}}</h5>
                 <div class="card-body">
                     <p class="card-title">
@@ -33,7 +31,6 @@
                     <a (click)="delete(friend, modalExit)" class="btn delete btn-primary"><span class="material-icons">delete_outline</span></a>
                 </div>
             </div>
-
         </div>
 
     </div>

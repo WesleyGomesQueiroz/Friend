@@ -8,6 +8,7 @@ import { DashboardComponent } from './page/dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { PainelComponent } from './component/painel/painel.component';
@@ -19,6 +20,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatIconModule } from '@angular/material/icon';
 import { AlertComponent } from './component/alert/alert.component';
 
+import { FilterPipe } from './pipes/filter.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,13 +29,15 @@ import { AlertComponent } from './component/alert/alert.component';
     DashboardComponent,
     PainelComponent,
     FriendComponent,
-    AlertComponent
+    AlertComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     NgxPaginationModule,
     NgbModule,

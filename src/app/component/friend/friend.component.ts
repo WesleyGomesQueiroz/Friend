@@ -1,8 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { FriendService } from 'src/app/service/friend.service';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AlertComponent } from '../alert/alert.component';
+import { DomSanitizer } from '@angular/platform-browser';
+
+@Pipe({ name: 'safe' })
+export class SafePipe implements PipeTransform {
+  constructor(private sanitizer: DomSanitizer) { }
+  transform(url: any) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+}
 
 @Component({
   selector: 'app-friend',
@@ -14,6 +23,7 @@ export class FriendComponent implements OnInit {
   friends: any;
   closeModal: any;
   friendData: any;
+  filterPost = '';
 
   createFriend = new FormGroup({});
   editFriend = new FormGroup({});
@@ -27,6 +37,8 @@ export class FriendComponent implements OnInit {
   ngOnInit(): void {
     this.userData = JSON.parse(localStorage.getItem('usuario') || '{}');
 
+    this.getAllFriends();
+
     this.createFriend = new FormGroup({
       idUser: new FormControl(this.userData.value.resUser.id, [Validators.required]),
       name: new FormControl('', [Validators.required]),
@@ -36,7 +48,6 @@ export class FriendComponent implements OnInit {
       adress: new FormControl('', [Validators.required]),
     });
 
-    this.getAllFriends();
   }
 
   getAllFriends() {
