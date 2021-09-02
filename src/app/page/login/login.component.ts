@@ -64,8 +64,20 @@ export class LoginComponent implements OnInit {
       this.confirmLogin = res;
 
       if (this.confirmLogin.value.status) {
-        localStorage.setItem('usuario', JSON.stringify(res));
-        this.router.navigateByUrl('/dashboard');
+
+        const objLogin = {
+          Email: this.createLoginForm.value.email,
+          Password: this.createLoginForm.value.password
+        };
+
+        this.loginService.login(objLogin).subscribe(res => {
+          localStorage.setItem('usuario', JSON.stringify(res));
+          this.router.navigateByUrl('/dashboard');
+
+          this.loading = false;
+        });
+
+
       } else {
         this.msg = this.confirmLogin.value.message;
       }

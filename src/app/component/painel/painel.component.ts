@@ -41,7 +41,6 @@ export class PainelComponent implements OnInit {
     this.userData = JSON.parse(localStorage.getItem('usuario') || '{}');
 
     this.getAllFriends();
-
   }
 
   getAllFriends() {
