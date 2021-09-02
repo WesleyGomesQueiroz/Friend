@@ -16,6 +16,7 @@ export class FriendComponent implements OnInit {
   friendData: any;
 
   createFriend = new FormGroup({});
+  editFriend = new FormGroup({});
 
   constructor(
     public friendService: FriendService,
@@ -83,6 +84,30 @@ export class FriendComponent implements OnInit {
   confirmDelete() {
     this.friendService.update(this.friendData).subscribe(res => {
       this.alertComponent.alertTimer('success', `Deletado com sucesso!`);
+      this.modalService.dismissAll();
+      this.getAllFriends();
+    })
+  }
+
+  edit(data: any, modal: any) {
+    this.editFriend = new FormGroup({
+      id: new FormControl(data.id, [Validators.required]),
+      idUser: new FormControl(data.idUser, [Validators.required]),
+      name: new FormControl(data.name, [Validators.required]),
+      email: new FormControl(data.email, [Validators.required]),
+      ddd: new FormControl(data.ddd, [Validators.required]),
+      phone: new FormControl(data.phone, [Validators.required]),
+      adress: new FormControl(data.adress, [Validators.required]),
+      status: new FormControl(true, [Validators.required]),
+    });
+
+
+    this.triggerModal(modal);
+  }
+
+  confirmEdit() {
+    this.friendService.update(this.editFriend.value).subscribe(res => {
+      this.alertComponent.alertTimer('success', `Editado com sucesso!`);
       this.modalService.dismissAll();
       this.getAllFriends();
     })
